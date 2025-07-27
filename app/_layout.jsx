@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useEffect } from "react";
-import { Slot, Stack, SplashScreen } from "expo-router";
+import {  Stack, SplashScreen } from "expo-router";
 
 import { useFonts } from "expo-font";
 SplashScreen.preventAutoHideAsync();
@@ -34,7 +34,7 @@ export default function RootLayout() {
     <>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="Profile" options={{ headerShown: true }} /> */}
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       </Stack>
     </>
   );

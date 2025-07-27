@@ -18,22 +18,22 @@ const TabLayout = () => {
             height: 100,
           },
         }}>
-    <Tabs.Screen name='Home' options={{
+    <Tabs.Screen name='home' options={{
       headerShown : false,
       title : 'Home',
       tabBarIcon :({color})=><Entypo name="home" size={24} color={color} />
       }}/>
-    <Tabs.Screen name='Profile' options={{
+    <Tabs.Screen name='profile' options={{
       headerShown : false,
       title : 'Profile',
       tabBarIcon :({color})=><MaterialIcons name="account-circle" size={24} color={color} />
       }}/>
-    <Tabs.Screen name='Create' options={{
+    <Tabs.Screen name='create' options={{
       headerShown : false,
-      title : 'Crete',
+      title : 'create',
       tabBarIcon :({color})=><Ionicons name="add-circle" size={24} color={color}/>
       }}/>
-    <Tabs.Screen name='Bookmark' options={{
+    <Tabs.Screen name='bookmark' options={{
       headerShown : false,
       title : 'Saved',
       tabBarIcon :({color})=><FontAwesome name="bookmark" size={24} color={color} />

@@ -2,13 +2,14 @@ import { View, Text, StatusBar, ScrollView, Image } from "react-native";
 import React from "react";
 import "./global.css";
 import { Button } from "react-native-paper";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
+import CustomButton from "@/components/CustomButton";
 export default function index() {
   return (
     <SafeAreaView className="h-full bg-primary">
-      <ScrollView contentContainerStyle={{ height: "100%" }}>
+      <ScrollView contentContainerStyle={{ height: "100%",backgroundColor : 'red' }} >
         <View className="justify-start items-center min-h-[85vh] w-full px-4 ">
           <Image
             source={images.logo}
@@ -25,13 +26,31 @@ export default function index() {
               Discover Endless Possibilities with{" "}
               <Text className="text-secondary-200">Aora</Text>
             </Text>
-              <Image source={images.path} className="w-[136px] h-[15px] absolute -bottom-2 -right-8" resizeMode="contain"/>
+            <Image
+              source={images.path}
+              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
+              resizeMode="contain"
+            />
           </View>
-              <Text className="text-sm mt-7 text-gray-100 font-pregular text-center">Where Creativity Meets Innovation: Embark on a Journey of Limitless Exploration with Aora</Text>
-       <Button mode="contained" buttonColor="#FF8E01" textColor="black"  className=" w-80 mt-8"> go with email</Button>
+          <Text className="text-sm mt-7 text-gray-100 font-pregular text-center">
+            Where Creativity Meets Innovation: Embark on a Journey of Limitless
+            Exploration with Aora
+          </Text>
+
+          {/* <Button mode="contained" buttonColor="#FF8E01" textColor="black"   className=" w-full  " style={{borderRadius :10}}> go with email</Button> */}
+          <CustomButton
+            title="Continue with Email"
+            handlePress={() => router.push("/sign-in")}
+            containerStyles="w-full mt-7"
+          />
+          {/* <CustomButton
+            title="Continue with Email"
+            handlePress={() => router.push("/create")}
+            containerStyles="w-full mt-7"
+          /> */}
         </View>
       </ScrollView>
-      <StatusBar barStyle={''} backgroundColor={'#161622'}/>
+      <StatusBar barStyle={""} backgroundColor={"#161622"} />
     </SafeAreaView>
   );
 }
