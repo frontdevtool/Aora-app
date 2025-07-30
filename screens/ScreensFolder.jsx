@@ -3,7 +3,7 @@ import React from 'react'
 
 const ScreensFolder = () => {
   return (
-    <View className='flex-1 bg-sky-400'>
+    <View test='flex-1 bg-sky-400'>
       <Text className='text-red-600 text-4xl'>ScrennsFolder</Text>
     </View>
   )

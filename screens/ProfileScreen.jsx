@@ -7,7 +7,7 @@ export default function ProfileScreen() {
    const navigation = useNavigation();
 const route =  useRoute()
   return (
-    <View className='flex-1 justify-center items-center'>
+    <View test='flex-1 justify-center items-center'>
       <Text className='text-4xl'> Profile Screen</Text>
       {/* <Text> name : {route.params.name}</Text>
        <Button mode="contained" onPress={() => navigation.navigate("settings")} >

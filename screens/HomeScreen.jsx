@@ -9,7 +9,7 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1 justify-center items-center gap-10">
+    <View test="flex-1 justify-center items-center gap-10">
       <Text>HomeScreen</Text>
       {/* <Button mode="contained" onPress={() => navigation.navigate("profile",{name : 'kazem'})} >
         Go to Profile

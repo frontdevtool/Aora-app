@@ -14,7 +14,7 @@ const SettingsScreen = () => {
   // console.log('params: ', route.params);
   // console.log('path: ', route.path);
   return (
-    <View className='flex-1 justify-center items-center'>
+    <View test='flex-1 justify-center items-center'>
       <Text>SettingsScreen</Text>
       <Text> name : {route.name}</Text>
       <Text> name : {route.params?.name}</Text>
