@@ -40,14 +40,11 @@ export default function index() {
           {/* <Button mode="contained" buttonColor="#FF8E01" textColor="black"   className=" w-full  " style={{borderRadius :10}}> go with email</Button> */}
           <CustomButton
             title="Continue with Email"
-            handlePress={() => router.push("/(auth)/Sign-in")}
+            handlePress={() => router.push("/(auth)/sign-in")}
             containerStyles="w-full mt-7"
           />
-          <CustomButton
-            title="Continue with Email"
-            handlePress={() => router.push("/create")}
-            containerStyles="w-full mt-7"
-          />
+
+    
         </View>
       </ScrollView>
       <StatusBar barStyle={""} backgroundColor={"#161622"} />
