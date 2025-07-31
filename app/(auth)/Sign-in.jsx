@@ -35,7 +35,7 @@ return (
             value={form.password}
              onChangeText={(e)=>setForm({...form , password : e})}
              />
-        <CustomButton title={'log-in'} handlePress={()=>router.push('/profile')}/>
+        <CustomButton title={'log-in'} handlePress={()=>router.push('/home')}/>
           <Link className=" text-center mt-4 text-white" href={'/(auth)/sign-up'}>Don't have account ? <Text className="text-secondary-100">sign-up</Text></Link>
              
         </View>
