@@ -2,12 +2,20 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { Button, Icon, TextInput } from "react-native-paper";
 
-const SearchInput = ({keyboardType, onChangeText, value, label, placeholder,otherstyle }) => {
+const SearchInput = ({
+  keyboardType,
+  onChangeText,
+  value,
+  label,
+  placeholder,
+  otherstyle,
+}) => {
   const [eye, setEye] = useState(true);
   return (
-    <View style={{ justifyContent: "center" }} className={`${otherstyle}`} >
+    <View style={{ justifyContent: "center" }} className={`${otherstyle}`}>
       <TextInput
-              // right={<TextInput.Icon icon={label} onPress={() => setEye(!eye)} />}
+        className="bg-primary"
+        // right={<TextInput.Icon icon={label} onPress={() => setEye(!eye)} />}
         // style={{ width: 300,marginTop :50 }}
         label={label}
         value={value}
@@ -15,8 +23,14 @@ const SearchInput = ({keyboardType, onChangeText, value, label, placeholder,othe
         placeholder={placeholder}
         // keyboardType={'numeric'}
         keyboardType={keyboardType}
-     
-
+        right={
+          <TextInput.Icon
+            icon="select-search"
+            size={30}
+            color={""}
+            // style={{ backgroundColor: "red" }}
+          />
+        }
       />
     </View>
   );
