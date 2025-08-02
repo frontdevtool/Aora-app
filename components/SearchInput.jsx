@@ -14,7 +14,7 @@ const SearchInput = ({
   return (
     <View style={{ justifyContent: "center" }} className={`${otherstyle}`}>
       <TextInput
-        className="bg-primary"
+        className=""
         // right={<TextInput.Icon icon={label} onPress={() => setEye(!eye)} />}
         // style={{ width: 300,marginTop :50 }}
         label={label}

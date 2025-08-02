@@ -9,15 +9,15 @@ export default function Trending({ latestPosts }) {
       data={latestPosts}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
-        // <Image
-        //   // source={{ uri: item.thumbnail }}
-        //   width={250}
-        //   height={300}
-        //   className=" rounded-xl mt-3 bg-red-300"
-        //   resizeMode="contain"
-        // />
+        <Image
+          source={{ uri: item.thumbnail }}
+          width={250}
+          height={250}
+          className=" rounded-xl mt-3 border-red-500 border-2 mx-1"
+          resizeMode="contain"
+        />
         // <Text className=" text-white"> {item.title} </Text>
-        <View className=" text-white w-52 h-72 bg-red-400 rounded-lg mx-1"> {item.title} </View>
+        // <View className=" text-white w-52 h-72 bg-red-400 rounded-lg mx-1"> {item.title} </View>
       )}
     />
   );

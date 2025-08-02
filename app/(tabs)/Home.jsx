@@ -16,14 +16,14 @@ import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
 import EmptyState from "@/components/EmptyState";
 import VideoCard from "@/components/VedeoCard";
+import { ActivityIndicator } from "react-native-paper";
 
 const Home = () => {
   const [refreshing, setRefreshing] = useState(false);
 //   console.log("data: ", data);
 
-const {data : posts , refetch }= useServer(getAllPosts)
+const {data : posts , refetch , isLoading }= useServer(getAllPosts)
 const {data : latestPosts  }= useServer(getLatestPosts)
-// console.log('posts: ', posts);
 
   const onRefresh = async() => {
     setRefreshing(true);
@@ -37,13 +37,17 @@ const {data : latestPosts  }= useServer(getLatestPosts)
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => (
-            <VideoCard
+            <View>
+
+            {isLoading ?<ActivityIndicator /> : ( <VideoCard
             title={item.title}
             thumbnail={item.thumbnail}
             // video={item.video}
             creator={item.userName}
             avatar={item.avatar}
-          />
+            />)}
+           
+            </View>
         )
     }
         ListHeaderComponent={() => (
@@ -62,18 +66,20 @@ const {data : latestPosts  }= useServer(getLatestPosts)
               </View>
             </View>
             <SearchInput placeholder={"search for videos topic"} />
-            <View className="mt-5 flex-1 bg-sky-300  w-full">
+            <View className="mt-5 flex-1 border-green-400 border-2  w-full">
               <Text className="text-white">Latest vedios</Text>
-              <Trending latestPosts={latestPosts ?? []} />
+              {isLoading ? <ActivityIndicator/> :      <Trending latestPosts={latestPosts ?? []} />}
+         
             </View>
           </View>
         )}
-        ListEmptyComponent={() => (
-          <EmptyState
-            title="no Videos "
-            subtitle="Be first one upload videos"
-          />
-        )}
+        // ListEmptyComponent={() => (
+           
+        //   <EmptyState
+        //     title="no Videos "
+        //     subtitle="Be first one upload videos"
+        //   />
+        // )}
         refreshControl={
           <RefreshControl onRefresh={onRefresh} refreshing={refreshing} />
         }
