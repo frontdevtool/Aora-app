@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "@/constants";
 import { getAllPosts, getLatestPosts } from "../../lib/server";
-import  useServer  from "../../lib/useServer";
+import useServer from "../../lib/useServer";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
 import EmptyState from "@/components/EmptyState";
@@ -20,36 +20,39 @@ import { ActivityIndicator } from "react-native-paper";
 
 const Home = () => {
   const [refreshing, setRefreshing] = useState(false);
-//   console.log("data: ", data);
+  //   console.log("data: ", data);
 
-const {data : posts , refetch , isLoading }= useServer(getAllPosts)
-const {data : latestPosts  }= useServer(getLatestPosts)
+  const { data: posts, refetch, isLoading } = useServer(getAllPosts);
+  const { data: latestPosts } = useServer(getLatestPosts);
 
-  const onRefresh = async() => {
+  const onRefresh = async () => {
     setRefreshing(true);
     // re call vedios
-   await refetch()
+    await refetch();
     setRefreshing(false);
   };
   return (
-    <SafeAreaView className={"bg-primary  border-2 border-red-400"}>
+    <SafeAreaView className={"bg-primary flex-1  border-2 border-red-400"}>
       <FlatList
-        data={posts}
+        // data={posts}
+        data={isLoading ? Array(1).fill({}) : posts}
         keyExtractor={(item) => item.id}
-        renderItem={({ item, index }) => (
-            <View>
-
-            {isLoading ?<ActivityIndicator /> : ( <VideoCard
-            title={item.title}
-            thumbnail={item.thumbnail}
-            // video={item.video}
-            creator={item.userName}
-            avatar={item.avatar}
-            />)}
-           
-            </View>
-        )
-    }
+        renderItem={({ item, index }) => 
+          isLoading ? (
+      <View className="p-5 items-center">
+        <ActivityIndicator size={50} color="green" />
+      </View>
+    ) :(
+          <View>
+            <VideoCard
+              title={item.title}
+              thumbnail={item.thumbnail}
+              // video={item.video}
+              creator={item.userName}
+              avatar={item.avatar}
+            />
+          </View>
+        )}
         ListHeaderComponent={() => (
           <View className="my-7 space-y-7 px-7  border">
             <View className="flex-row justify-between items-center my-5">
@@ -68,13 +71,12 @@ const {data : latestPosts  }= useServer(getLatestPosts)
             <SearchInput placeholder={"search for videos topic"} />
             <View className="mt-5 flex-1 border-green-400 border-2  w-full">
               <Text className="text-white">Latest vedios</Text>
-              {isLoading ? <ActivityIndicator/> :      <Trending latestPosts={latestPosts ?? []} />}
-         
+              {/* {isLoading ? <ActivityIndicator/> :      <Trending latestPosts={latestPosts ?? []} />} */}
             </View>
           </View>
         )}
         // ListEmptyComponent={() => (
-           
+
         //   <EmptyState
         //     title="no Videos "
         //     subtitle="Be first one upload videos"

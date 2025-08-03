@@ -26,18 +26,28 @@ const Create = () => {
       <Text>Create</Text>
 
       {/* {isLoading ? <ActivityIndicator /> :  <Text className='bg-blue-400 my-1 p-5'>  {item.title} </Text>} */}
-      {isLoading ? <ActivityIndicator size={50} color='red'/> : (
+      {isLoading ? (
+  <View className="flex-1 justify-center items-center">
+    <ActivityIndicator size={50} color='red' />
+  </View>
+) : (
 
         <FlatList
         data={posts}
         keyExtractor={(item)=>item.id}
-        renderItem={({item})=>(
-          <View className={' w-full flex-row justify-between items-center bg-blue-400 m-1'}>
-          {/* <ActivityIndicator /> */}
-          <Text className='my-1 p-5 w-full'>  {item.id} </Text>
-          <Button title='delete'  onPress={()=>handleDelete(item)}>delete</Button>
-        </View>
-      )}
+        renderItem={({item})=>
+     isLoading ? (
+      <View className="p-5 items-center">
+        <ActivityIndicator size={50} color="red" />
+      </View>
+    ) : (
+      <View className="w-full flex-row justify-between items-center bg-blue-400 m-1">
+        <Text className="my-1 p-5 w-full">{item.id}</Text>
+        <Button title="delete" onPress={() => handleDelete(item)} />
+      </View>
+    )
+    
+    }
       ListHeaderComponent={()=>(
         <View className="my-7 space-y-7 px-7  border">
             <View className="flex-row justify-between items-center my-5">
