@@ -12,6 +12,7 @@ const AuthLayout = () => {
       >
         <Stack.Screen name="sign-in" />
         <Stack.Screen name="sign-up" />
+        <Stack.Screen name="test" />
       </Stack>
       <StatusBar barStyle={""} backgroundColor={"#161622"} />
     </>

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { Button, Icon, TextInput } from "react-native-paper";
 
-const FormField = ({keyboardType, onChangeText, value, label, placeholder,otherstyle }) => {
+const FormField = ({keyboardType, onChangeText, value, label, placeholder,otherstyle ,onBlur}) => {
   const [eye, setEye] = useState(true);
   return (
     <View style={{ justifyContent: "center" }} className={`${otherstyle}`} >
@@ -15,6 +15,7 @@ const FormField = ({keyboardType, onChangeText, value, label, placeholder,others
         placeholder={placeholder}
         // keyboardType={'numeric'}
         keyboardType={keyboardType}
+        onBlur={onBlur}
      
 
       />

@@ -43,6 +43,11 @@ export default function index() {
             handlePress={() => router.push("/(auth)/sign-in")}
             containerStyles="w-full mt-7"
           />
+          {/* <CustomButton
+            title="Continue with Email"
+            handlePress={() => router.push("/(auth)/sign-in")}
+            containerStyles="w-full mt-7"
+          /> */}
 
     
         </View>
